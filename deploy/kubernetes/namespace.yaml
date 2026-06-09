@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: email-platform
+  labels:
+    name: email-platform
+    istio-injection: enabled # Ready for Service Mesh structures

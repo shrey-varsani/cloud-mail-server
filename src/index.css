@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+:root {
+  /* Light Mode - Base Values matching Proton Mail specification */
+  --proton-bg: #F7F5FF;
+  --proton-surf: #FFFFFF;
+  --proton-purple: #6D4AFF;
+  --proton-hover-purple: #7C5CFF;
+  --proton-border: #E5E1F7;
+  --proton-text-primary: #1D1B31;
+  --proton-text-secondary: #6B6780;
+  
+  --proton-purple-light-alpha: rgba(109, 74, 255, 0.08);
+  --proton-hover-overlay: rgba(109, 74, 255, 0.04);
+}
+
+:root.dark, html.dark {
+  /* Dark Mode - Values matching Proton Mail specification */
+  --proton-bg: #191927;
+  --proton-surf: #232338;
+  --proton-purple: #8A6EFF;
+  --proton-hover-purple: #9D85FF;
+  --proton-border: #32324D;
+  --proton-text-primary: #FFFFFF;
+  --proton-text-secondary: #B0ACC7;
+  
+  --proton-purple-light-alpha: rgba(138, 110, 255, 0.12);
+  --proton-hover-overlay: rgba(255, 255, 255, 0.05);
+}
+
+/* Dynamic CSS mapping to dynamically skin the entire application beautifully */
+.proton-app {
+  background-color: var(--proton-bg) !important;
+  color: var(--proton-text-primary) !important;
+}
+
+/* Standard backgrounds mapping to the clean Proton color system */
+.proton-app .bg-\[\#0e0f14\],
+.proton-app .bg-\[\#0c0d12\],
+.proton-app .bg-\[\#101117\],
+.proton-app .bg-\[\#0f1016\],
+.proton-app .bg-\[\#0b0c10\],
+.proton-app .bg-\[\#0a0b0f\],
+.proton-app .bg-slate-950 {
+  background-color: var(--proton-bg) !important;
+}
+
+/* Card, panel surfaces mapping to white/dark specified surfaces */
+.proton-app .bg-\[\#181920\],
+.proton-app .bg-\[\#121319\],
+.proton-app .bg-\[\#242530\],
+.proton-app .bg-\[\#12131a\],
+.proton-app .bg-\[\#1d1e28\],
+.proton-app .bg-\[\#181922\],
+.proton-app .bg-\[\#181924\],
+.proton-app .bg-\[\#12131c\],
+.proton-app .bg-\[\#1a1b24\],
+.proton-app .bg-\[\#171822\],
+.proton-app .bg-\[\#1f2030\],
+.proton-app .bg-\[\#161722\],
+.proton-app .bg-\[\#1b1c26\],
+.proton-app .bg-\[\#222332\],
+.proton-app .bg-\[\#202133\],
+.proton-app .bg-\[\#14151d\],
+.proton-app .bg-\[\#1d1f28\],
+.proton-app .bg-\[\#181920\],
+.proton-app .bg-\[\#121319\],
+.proton-app header {
+  background-color: var(--proton-surf) !important;
+}
+
+/* Glass & elegant card designs matching Proton specification */
+.proton-app header, 
+.proton-app aside,
+.proton-app .border-slate-800,
+.proton-app .border-slate-900,
+.proton-app .border-\[\#181920\],
+.proton-app .border-slate-950,
+.proton-app .border-r {
+  border-color: var(--proton-border) !important;
+}
+
+/* Input elements inside the proton-app context */
+.proton-app input, 
+.proton-app textarea, 
+.proton-app select {
+  background-color: var(--proton-bg) !important;
+  border-color: var(--proton-border) !important;
+  color: var(--proton-text-primary) !important;
+}
+
+.proton-app input::placeholder, 
+.proton-app textarea::placeholder {
+  color: var(--proton-text-secondary) !important;
+}
+
+/* Toggle switch component aesthetic override */
+#theme-toggle-btn {
+  background-color: var(--proton-surf) !important;
+  border-color: var(--proton-border) !important;
+}
+#theme-toggle-btn:hover {
+  background-color: var(--proton-purple-light-alpha) !important;
+}
+
+/* Main typography mapping of text colors */
+.proton-app h1, 
+.proton-app h2, 
+.proton-app h3, 
+.proton-app h4, 
+.proton-app h5, 
+.proton-app h6, 
+.proton-app .text-white, 
+.proton-app .text-slate-100, 
+.proton-app .text-slate-200, 
+.proton-app .text-\[\#d1d2db\] {
+  color: var(--proton-text-primary);
+}
+
+/* Prevent button & system badge text from getting overwritten as dark on dark backgrounds */
+.proton-app button.bg-purple-700 *,
+.proton-app button.bg-purple-600 *,
+.proton-app .bg-emerald-600 *,
+.proton-app .bg-rose-600 *,
+.proton-app .bg-purple-700 *,
+.proton-app .bg-purple-600 *,
+.proton-app button *,
+.proton-app a * {
+  color: inherit;
+}
+
+/* Map secondary, slate and subtle metadata lines */
+.proton-app p, 
+.proton-app .text-slate-400, 
+.proton-app .text-slate-500, 
+.proton-app .text-\[\#8e909a\] {
+  color: var(--proton-text-secondary) !important;
+}
+
+/* Accent Buttons background & hover mapping */
+.proton-app .bg-purple-700,
+.proton-app .bg-purple-600,
+.proton-app .bg-purple-800 {
+  background-color: var(--proton-purple) !important;
+  color: #FFFFFF !important; /* Ensure buttons have high-contrast white text */
+}
+
+.proton-app .hover\:bg-purple-600:hover, 
+.proton-app .hover\:bg-purple-500:hover,
+.proton-app .bg-purple-700:hover,
+.proton-app .bg-purple-600:hover {
+  background-color: var(--proton-hover-purple) !important;
+  color: #FFFFFF !important;
+}
+
+/* Navigation layout active states */
+.proton-app .bg-\[\#181922\],
+.proton-app .bg-slate-900/60 {
+  background-color: var(--proton-purple-light-alpha) !important;
+  color: var(--proton-purple) !important;
+}
+
+.proton-app .text-purple-400,
+.proton-app .text-purple-500,
+.proton-app .text-[#6d4aff] {
+  color: var(--proton-purple) !important;
+}
+
+/* Scrollbars mapping to stay incredibly elegant */
+.proton-app ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.proton-app ::-webkit-scrollbar-track {
+  background: transparent;
+}
+.proton-app ::-webkit-scrollbar-thumb {
+  background: var(--proton-border);
+  border-radius: 4px;
+}
+.proton-app ::-webkit-scrollbar-thumb:hover {
+  background: var(--proton-text-secondary);
+}

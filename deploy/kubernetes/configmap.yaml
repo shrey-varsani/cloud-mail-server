@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: platform-config
+  namespace: email-platform
+data:
+  # Common environmental keys
+  ENVIRONMENT: "production"
+  LOG_LEVEL: "info"
+  
+  # Base service URLs matching our internal microservice namespaces
+  EMAIL_SERVICE_URL: "http://email-storage-service.email-platform.svc.cluster.local:8082"
+  ELASTICSEARCH_URL: "http://elasticsearch-coordinating.email-platform.svc.cluster.local:9200"
+  ELASTICSEARCH_INDEX: "emails-production"
+  
+  # Message streaming configurations
+  KAFKA_BROKERS: "kafka-cluster-kafka-bootstrap.email-platform.svc.cluster.local:9092"
+  RAW_EMAIL_TOPIC: "emails.raw.v1"
+  SCANNED_EMAIL_TOPIC: "emails.scanned.v1"
+  
+  # Storage configurations
+  MINIO_URL: "http://minio-service.email-platform.svc.cluster.local:9000"
+  MINIO_BUCKET_NAME: "attachments-production"
+  
+  # Feature Flagging & Rules limits
+  SPAM_THRESHOLD: "5.0"
+  USE_TLS: "true"
+  POP3_PORT: "9110"
+  IMAP_PORT: "9143"
+  SECURITY_API_PORT: "9090"

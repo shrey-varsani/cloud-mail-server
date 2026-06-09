@@ -1,0 +1,42 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: platform-ingress
+  namespace: email-platform
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/proxy-body-size: "15m" # Support larger message attachment uploads
+spec:
+  tls:
+    - hosts:
+        - api.email-platform.enterprise.com
+      secretName: email-platform-tls-cert
+  rules:
+    - host: api.email-platform.enterprise.com
+      http:
+        paths:
+          # Search & Security Rest API Gateway Context Path Routing
+          - path: /api/v1/search
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: security-and-search-service
+                port:
+                  number: 9090
+          - path: /api/v1/analyze
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: security-and-search-service
+                port:
+                  number: 9090
+          # Attachment Blob uploads-downloads
+          - path: /api/v1/attachments
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: attachment-service
+                port:
+                  number: 8080

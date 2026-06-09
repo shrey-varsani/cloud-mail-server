@@ -1,0 +1,4 @@
+com\platform\identity\entity\User.class
+com\platform\identity\entity\Role$RoleEnum.class
+com\platform\identity\entity\RefreshToken.class
+com\platform\identity\entity\Role.class

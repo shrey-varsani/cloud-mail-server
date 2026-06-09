@@ -1,0 +1,6 @@
+{
+  "name": "Cloud Native Email Platform Architect",
+  "description": "An interactive architectural explorer, docker configurations, container manifests, and folder structure design for a high-performance email platform using Go, Spring Boot, Kafka, MinIO, and Postgres.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

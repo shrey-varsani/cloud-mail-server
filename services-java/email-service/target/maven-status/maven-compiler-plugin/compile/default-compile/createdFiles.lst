@@ -1,0 +1,6 @@
+com\platform\email\entity\Draft.class
+com\platform\email\exception\ResourceNotFoundException.class
+com\platform\email\dto\MailboxRequest.class
+com\platform\email\dto\MailboxDto.class
+com\platform\email\exception\GlobalExceptionHandler.class
+com\platform\email\entity\Mailbox.class
